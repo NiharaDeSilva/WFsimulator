@@ -1,6 +1,9 @@
 import random
 
-
+'''
+Simulation of offspring by random mating
+Generates the next generation of individuals based on the current one
+'''
 def disrand(l, t):
     return random.randint(l, t)
 

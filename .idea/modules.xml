@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/WFSim.iml" filepath="$PROJECT_DIR$/.idea/WFSim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/WFSimulator.iml" filepath="$PROJECT_DIR$/.idea/WFSimulator.iml" />
     </modules>
   </component>
 </project>
