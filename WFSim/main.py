@@ -11,7 +11,7 @@ Supports customizable parameters such as Effective population size, number of lo
 Output is generated in GENEPOP format 
 
 '''
-
+start_time = time.time()
 '''
 CONSTANTS ETC ETC
 '''
@@ -30,8 +30,8 @@ parser.add_argument("--lT", type=float, help="Lower of Theta Range")
 parser.add_argument("--uT", type=float, help="Upper of Theta Range")
 parser.add_argument("--lD", type=float, help="Lower of Duration Range")
 parser.add_argument("--uD", type=float, help="Upper of Duration Range")
-parser.add_argument("--i", type=float, help="Missing data for individuals")
-parser.add_argument("--l", type=float, help="Missing data for loci")
+parser.add_argument("--i", type=int, help="number of individuals")
+parser.add_argument("--l", type=int, help="number of loci")
 parser.add_argument("--o", type=str, help="The File Name")
 parser.add_argument("--n", type=bool, help="whether to filter the monomorphic loci", default=False)
 args = parser.parse_args()
@@ -69,7 +69,7 @@ if (int(upperNe) < 1):
     print("ERROR:main:upperNe must be a positive value. Fatal Error")
     exit()
 
-rangeNe = lowerNe, upperNe
+rangeNe = (lowerNe, upperNe)
 
 lowerTheta = 0.000048
 if (args.lT):
@@ -208,6 +208,7 @@ def simulate_population(lociDirectInput, neRange, rangeTheta, individualsDirectI
 
 
 
-simulate_population(lociDirectInput, rangeNe, rangeTheta, individualsDirectInput, minAlleleFreq, mutationRate, rangeDuration)
+# simulate_population(lociDirectInput, rangeNe, rangeTheta, individualsDirectInput, minAlleleFreq, mutationRate, rangeDuration)
+simulate_population(args.l, (args.lNe, args.uNe), (args.lT, args.uT), args.i, args.m, args.r, (args.lD, args.uD))
 
-
+print("----- %s seconds -----" % (time.time() - start_time))
