@@ -43,7 +43,7 @@ for loci in "${lociList[@]}"; do
     rangeDuration="2 8"          # Space-separated range for Duration
 
     start_time=$(date +%s)
-    python main.py \
+    /usr/bin/time -f "%e %M" -o time_mem.log python main.py \
       --l "$loci" \
       --lNe $(echo $rangeNe | cut -d' ' -f1) \
       --uNe $(echo $rangeNe | cut -d' ' -f2) \
